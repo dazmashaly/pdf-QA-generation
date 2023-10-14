@@ -2,5 +2,5 @@ langchain
 pandas
 streamlit
 streamlit
-PyPDF
+pypdf
 PyPDF2
