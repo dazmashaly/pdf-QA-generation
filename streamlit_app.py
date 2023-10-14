@@ -140,7 +140,7 @@ with st.form(key='my-form'):
             
     gen = st.form_submit_button(label='Generate QA')
 if gen:
-            questions,context = get_questions(pdf_path)
+            questions,context = get_questions(os.path.join(uploaded_file.name))
 
             answers = get_answers(questions,context)
             output_file_path = get_csv(questions,answers)
