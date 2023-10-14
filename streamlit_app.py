@@ -132,22 +132,22 @@ with st.form(key='my-form'):
         uploaded_file = st.file_uploader("Upload a pdf file max 5 pages", type=["pdf"])
         # store the pdf
         if uploaded_file is not None:
-            pdf_path = os.path.join(uploaded_file.name)
+            pdf_path = os.path.join("context.pdf")
             with open(pdf_path,"wb") as f:
                 f.write(uploaded_file.getbuffer())
 
             
             
     gen = st.form_submit_button(label='Generate QA')
-if gen:
-            questions,context = get_questions(os.path.join(uploaded_file.name))
+if gen and token and uploaded_file:
+        questions,context = get_questions("context.pdf")
 
-            answers = get_answers(questions,context)
-            output_file_path = get_csv(questions,answers)
-            csv = convert_df(pd.read_csv(output_file_path))
-            st.download_button(
-            label="Download Q-A pairs as CSV",
-            data=csv,
-            file_name='QA.csv',
-            )
+        answers = get_answers(questions,context)
+        output_file_path = get_csv(questions,answers)
+        csv = convert_df(pd.read_csv(output_file_path))
+        st.download_button(
+        label="Download Q-A pairs as CSV",
+        data=csv,
+        file_name='QA.csv',
+        )
         
