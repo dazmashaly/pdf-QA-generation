@@ -1,6 +1,4 @@
 langchain
 pandas
-streamlit
-streamlit
 pypdf
 PyPDF2
