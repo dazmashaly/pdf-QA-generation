@@ -1,4 +1,4 @@
-
+import pypdf
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.docstore.document import Document
 from langchain.document_loaders import PyPDFLoader
@@ -8,6 +8,7 @@ import pandas as pd
 import csv
 import re
 import requests
+print(pypdf.__version__,"HEEEEEEEEEEE")
 
 API_URL_mistral = "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-v0.1"
 API_URL_ro = "https://api-inference.huggingface.co/models/deepset/roberta-base-squad2"
